@@ -51,4 +51,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         return [];
     }
+
+    public function bands(){
+        return $this->hasMany('App\Band');
+    }
 }

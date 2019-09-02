@@ -77,4 +77,10 @@ class UserController extends Controller
             return response()->json(['Message' => 'User not found'], 404);
         }
     }
+
+    // public function test(){
+    //     $data = file_get_contents("https://www.thesportsdb.com/api/v1/json/1/lookup_all_players.php?id=133610");
+    //     $data_result = json_decode($data);
+    //     dd($data_result);
+    // }
 }

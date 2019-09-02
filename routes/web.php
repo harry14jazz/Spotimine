@@ -15,6 +15,8 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+$router->get('/test', 'UserController@test');
+
 $router->group(['prefix' => 'api'], function () use ($router){
     // Matches "/api/register
     $router->post('register', 'AuthController@register');
@@ -27,5 +29,13 @@ $router->group(['prefix' => 'api'], function () use ($router){
         $router->get('/profile', 'UserController@profile');
         $router->get('/{id}', 'UserController@singleUser');
         $router->put('/update/{id}', 'UserController@updateUser');
+    });
+
+    // Band routes group
+    $router->group(['prefix' => 'band'], function () use ($router){
+        // $router->get('/', 'UserController@index');    
+        $router->post('/create', 'BandController@createBand');
+        $router->get('/{name}', 'BandController@getLogo');
+        // $router->put('/update/{id}', 'UserController@updateUser');
     });
 });
